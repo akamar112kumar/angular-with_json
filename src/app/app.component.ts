@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private jsonData: JsoDataControlerService) {}
   ngOnInit() {
     this.jsonData.getData().subscribe((result: any) => {
-      this.myresult = result.PersonalInfolistModel;
+      this.myresult = result.users;
       console.log(this.myresult);
     });
   }
