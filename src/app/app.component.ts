@@ -8,6 +8,7 @@ import { JsoDataControlerService } from './jso-data-controler.service';
 })
 export class AppComponent {
   myresult: any;
+  name = 'amar';
   constructor(private jsonData: JsoDataControlerService) {}
   ngOnInit() {
     this.jsonData.getData().subscribe((result: any) => {
