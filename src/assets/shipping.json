@@ -2,25 +2,26 @@
   "users": [
     {
       "id": 1,
-      "username": "duncan",
+      "username": "rohan",
       "country": "australia",
-      "password": "123"
+      "gender": "male"
     },
     {
       "id": 2,
-      "username": "sarah",
+      "username": "ritu raj",
       "country": "england",
-      "password": "123"
+      "gender": "female"
     },
     {
       "id": 3,
-      "username": "admin",
+      "username": "mohan",
       "country": "usa",
-      "password": "123"
+      "gender": "male"
     },
     {
-      "username": "test2",
-      "password": "123",
+      "username": "rina",
+      "country": "india",
+      "gender": "female",
       "id": 4
     }
   ],

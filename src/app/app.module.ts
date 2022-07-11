@@ -9,6 +9,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { HomeComponent } from './home/home.component';
 import { JsoDataControlerService } from './jso-data-controler.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GenderPipe } from './gender.pipe';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     TopBarComponent,
     ProductListComponent,
     HomeComponent,
+    GenderPipe,
   ],
   providers: [JsoDataControlerService],
   bootstrap: [AppComponent],
