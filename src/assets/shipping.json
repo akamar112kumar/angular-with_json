@@ -4,25 +4,36 @@
       "id": 1,
       "username": "rohan",
       "country": "australia",
-      "gender": "male"
+      "gender": "male",
+      "DueAmount": 50000
     },
     {
       "id": 2,
       "username": "ritu raj",
       "country": "england",
-      "gender": "female"
+      "gender": "female",
+      "DueAmount": 11000
     },
     {
       "id": 3,
       "username": "mohan",
       "country": "usa",
-      "gender": "male"
+      "gender": "male",
+      "DueAmount": 5000
     },
     {
       "username": "rina",
       "country": "india",
       "gender": "female",
-      "id": 4
+      "id": 4,
+      "DueAmount": 200000
+    },
+    {
+      "username": "rohini",
+      "country": "india",
+      "gender": "female",
+      "id": 5,
+      "DueAmount": 15000
     }
   ],
   "profiles": [

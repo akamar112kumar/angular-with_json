@@ -11,12 +11,14 @@
     <th>UserName</th>
     <th>Country</th>
     <th>gender</th>
+    <th>Due Amount</th>
   </tr>
   <tr *ngFor="let item of myresult">
     <td>{{ item.id }}</td>
     <td>{{ item.username | gender: item.gender }}</td>
     <td>{{ item.country }}</td>
     <td>{{ item.gender }}</td>
+  <td>{{item.DueAmount | characterStatus: item.DueAmount}}</td>
   </tr>
 </table>
 

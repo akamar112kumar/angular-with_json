@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { JsoDataControlerService } from './jso-data-controler.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GenderPipe } from './gender.pipe';
+import { CharacterStatusPipe } from './character-status.pipe';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { GenderPipe } from './gender.pipe';
     ProductListComponent,
     HomeComponent,
     GenderPipe,
+    CharacterStatusPipe,
   ],
   providers: [JsoDataControlerService],
   bootstrap: [AppComponent],
