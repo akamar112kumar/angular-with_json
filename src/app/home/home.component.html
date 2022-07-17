@@ -1,3 +1,231 @@
 <p>home works!</p>
 
 <!-- <p style="color:red" *ngFor="let item of myresult">{{ item.type }}</p> -->
+
+<!-- <div class="nav.navbar .navbar-light bg-primary">
+  <div class="container-fluid d-flex justify-content-between">
+    <h1 style="color:#ffffff;">angular CRUD</h1>
+    <div class="">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Add Employee
+      </button>
+    </div>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Employee Id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email Id</th>
+      <th scope="col">Mobile No.</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>sashi</td>
+      <td>yadav</td>
+      <td>yshashi30@gmail.com</td>
+      <td>9876584857</td>
+      <td>$ 50,000</td>
+      <td>
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-info mx-3">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+//Modal
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Employee details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >First Name</label
+            >
+            <input
+              type="text"
+              formControlName="firstName"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Last name</label
+            >
+            <input
+              type="text"
+              formControlName="lastName"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Email Id</label
+            >
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Mobile No</label
+            >
+            <input
+              type="text"
+              formControlName="mobile"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">salary</label>
+            <input
+              type="text"
+              formControlName="salary"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="cancel"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="postEmployeeDetails()"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+<!-- import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { EmployeeModel } from './employee-dash board.model';
+import { ApiService } from '../shared/api.service';
+@Component({
+  selector: 'app-employee-dashboard',
+  templateUrl: './employee-dashboard.component.html',
+  styleUrls: ['./employee-dashboard.component.scss']
+})
+export class EmployeeDashboardComponent implements OnInit {
+  formValue !: FormGroup;
+  employeeModelObj: EmployeeModel = new EmployeeModel();
+  constructor(private formbuilder: FormBuilder, private api: ApiService) { }
+
+  ngOnInit(): void {
+    this.formValue = this.formbuilder.group({
+      firstName: [''],
+      lastName: [''],
+      email: [''],
+      mobile: [''],
+      salary: ['']
+    })
+  }
+  postEmployeeDetails() {
+    this.employeeModelObj.firstName = this.formValue.value.firstName;
+    this.employeeModelObj.lastName = this.formValue.value.lastName;
+    this.employeeModelObj.email = this.formValue.value.email;
+    this.employeeModelObj.mobile = this.formValue.value.mobile;
+    this.employeeModelObj.salary = this.formValue.value.salary;
+
+    this.api.postEmploye(this.employeeModelObj).subscribe(res => {
+      console.log(res);
+      alert("Employee added successfully");
+      let ref = document.getElementById('cancel')
+      ref?.click();
+    }, err => {
+      alert("Something went wrong")
+    })
+
+  }
+} -->
+
+<!--
+  import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+
+  constructor(private http:HttpClient) { }
+  postEmploye(data:any){
+    return this.http.post<any>("http://localhost:3000/posts", data).pipe(map((res:any)=>{
+      return res
+    }))
+  }
+  getEmployee(){
+    return this.http.get<any>("http://localhost:3000/posts").pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  updateEmployee(data: any, id: number){
+    return this.http.put<any>("http://localhost:3000/posts/",+id,data).pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  // deleteEmployee(id : number){
+  //   return this.http.delete<any>("http://localhost:3000/posts/",+id).pipe(map((res:any)=>{
+  //     return res;
+  //   }))
+  // }
+}
+ 
+
+-->
+<!-- 
+export class EmployeeModel{
+  id : number = 0;
+  firstName : string = '';
+  lastName : string = '';
+  email : string = '';
+  mobile : string = '';
+  salary : string = '';
+} -->
